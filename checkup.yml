@@ -1,5 +1,5 @@
 - name: "Checkup"
   hosts: all
   tasks:
-  - name: "Ping"
-    ping
+  - name: "uptime"
+    command: uptime
