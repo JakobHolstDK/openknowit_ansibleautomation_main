@@ -159,19 +159,19 @@
       ],
       "templates": [
         {
-          "name": "ansibleautomationmanager_checkup",
-          "description": "Master job for self healing ansible automation as code",
+          "name": "zabbix_checkup",
+          "description": "job checking accesablilit",
           "job_type": "run",
-          "inventory": "masterinventory",
-          "project": "main",
+          "inventory": "serverinventory",
+          "project": "zabbix",
           "EE": "Automation Hub Default execution environment",
-          "credentials": "main",
+          "credentials": "servers",
           "playbook": "checkup.yml"
         }
       ],
       "schedules": [
         {
-          "name": "ansibleautomationmanager_checkup",
+          "name": "zabbix_checkup",
           "type": "job",
           "template": "ansibleautomationmanager_checkup",
           "description": "Master job for ensuring connectivity",
