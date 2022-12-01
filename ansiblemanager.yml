@@ -6,7 +6,7 @@
       name: git
       state: latest
 
-  - name: Example clone of a single branch
+  - name: "Example clone of a single branch"
     ansible.builtin.git:
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
       dest: /opt/openknowit_ansibleautomation_main
