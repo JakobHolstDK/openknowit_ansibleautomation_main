@@ -11,6 +11,7 @@
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
       dest: /opt/openknowit_ansibleautomation_main
       single_branch: yes
+      force: yes
       version: main
     become: yes
 
