@@ -160,7 +160,7 @@
       "templates": [
         {
           "name": "zabbix_checkup",
-          "description": "job checking accesablilit",
+          "description": "job checking connectivity",
           "job_type": "run",
           "inventory": "serverinventory",
           "project": "zabbix",
