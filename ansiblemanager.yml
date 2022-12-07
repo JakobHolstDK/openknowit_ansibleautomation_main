@@ -14,5 +14,17 @@
       force: yes
       version: main
     become: yes
-
+    
+  - name: "ansiblemanager | ensure systemd user directory exitst"
+    ansible.builtin.file:
+      path: ~/.config/systemd/user
+      state: directory
+      mode: '0755'
+  
+  - name: "ansiblemanager | copy service file to manager
+    ansible.builtin.copy:
+      src: aaoaa.service
+      dest: ~/.config/systemd/user/aaoaa.service
+      mode: '0644'      
+ 
 
