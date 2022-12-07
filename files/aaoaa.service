@@ -1,0 +1,13 @@
+[Unit]
+Description=Ansible Automation on Ansible Automation
+After=network.target
+
+[Service]
+ExecStart=/opt/openknowit_ansible_feed/bin/aaoaad
+Restart=always
+LogLevel=3
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
+
