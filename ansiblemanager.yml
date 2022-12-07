@@ -40,8 +40,8 @@
   - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
     service: 
       name: "aaoaa"
-      state: started
-      enabled: true
+      state: stopped
+      enabled: false
 
   handlers:
     - name: "restart ansiblemanager service"
