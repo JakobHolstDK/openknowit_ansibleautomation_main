@@ -20,12 +20,14 @@
       group: "{{ aaoaa_serviceaccount['name'] }}"
     become: yes
 
-  - name: Create a 2048-bit SSH key for user jsmith in ~jsmith/.ssh/id_rsa
+  - name: Create a 2048-bit SSH key for  automation user
     ansible.builtin.user:
       name: "{{ aaoaa_serviceaccount['name'] }}"
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
+    become_user: "{{ aaoaa_serviceaccount['name'] }}"
+    become: yes
 
   - name: "Ansiblemanager | clone the main ansible manager network"
     ansible.builtin.git:
