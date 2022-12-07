@@ -21,7 +21,7 @@
       state: directory
       mode: '0755'
   
-  - name: "ansiblemanager | copy service file to manager
+  - name: "ansiblemanager | copy service file to manager"
     ansible.builtin.copy:
       src: aaoaa.service
       dest: ~/.config/systemd/user/aaoaa.service
