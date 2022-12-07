@@ -29,6 +29,15 @@
     become_user: "{{ aaoaa_serviceaccount['name'] }}"
     become: yes
 
+  - name: "Ansiblemanager | clone the main ansible manager feeder "
+    ansible.builtin.git:
+      repo: "git@github.com:JakobHolstDK/openknowit_ansible_feed.git"
+      dest: /opt/openknowit_ansible_feed
+      single_branch: yes
+      force: yes
+      version: main
+    become: yes
+
   - name: "Ansiblemanager | clone the main ansible manager network"
     ansible.builtin.git:
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
