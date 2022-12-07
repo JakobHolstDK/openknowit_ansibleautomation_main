@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/opt/openknowit_ansible_feed/bin/aaoaad
-User="{{ aaoaa_serviceaccount['name'] }}"
+User={{ aaoaa_serviceaccount['name'] }}
 Restart=always
 LogLevel=3
 
