@@ -1,1 +1,3 @@
-aaoaa_serviceaccount: "knowit"
+aaoaa_serviceaccount:
+  - name  "aaoaa"
+  - gecos "Automation user for ansible automation" 

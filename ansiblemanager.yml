@@ -6,6 +6,20 @@
       name: git
       state: latest
 
+- name: "ansiblemanager |Add the automation user"
+    ansible.builtin.group:
+      name: " {{ aaoaa_serviceaccount['name'] }}"
+      state: present
+    become: yes
+    
+
+- name: "ansiblemanager |Add the automation user"
+    ansible.builtin.user:
+      name: " {{ aaoaa_serviceaccount['name'] }}"
+      comment: " {{ aaoaa_serviceaccount['gecos'] }}"
+      group: " {{ aaoaa_serviceaccount['name'] }}"
+    become: yes
+
   - name: "Ansiblemanager | clone the main ansible manager network"
     ansible.builtin.git:
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
@@ -15,16 +29,10 @@
       version: main
     become: yes
     
-  - name: "ansiblemanager | ensure systemd user directory exitst"
-    ansible.builtin.file:
-      path: ~/.config/systemd/user
-      state: directory
-      mode: '0755'
-  
   - name: "ansiblemanager | copy service file to manager"
-    ansible.builtin.copy:
-      src: aaoaa.service
-      dest: ~/.config/systemd/user/aaoaa.service
+    ansible.builtin.template:
+      src: aaoaa.service.j2
+      dest: /usr/lib/systemd/user/aaoaa.service
       mode: '0644'      
     notify: 
       - "restart ansiblemanager service"
@@ -32,7 +40,6 @@
   - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
     service: 
       name: "aaoaa"
-
       state: started
       enabled: true
 
