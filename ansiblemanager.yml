@@ -6,7 +6,7 @@
       name: git
       state: latest
 
-  - name: "ansiblemanager |Add the automation user"
+  - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
       name: " {{ aaoaa_serviceaccount['name'] }}"
       state: present
