@@ -1,12 +1,12 @@
 - name: "ansiblemanager"
   hosts: all
   tasks:
-  - name: "ansiblemanager| install git"
+  - name: "ansiblemanager | install git"
     ansible.builtin.package:
       name: git
       state: latest
 
-  - name: "Example clone of a single branch"
+  - name: "Ansiblemanager | clone the main ansible manager network"
     ansible.builtin.git:
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
       dest: /opt/openknowit_ansibleautomation_main
@@ -26,5 +26,18 @@
       src: aaoaa.service
       dest: ~/.config/systemd/user/aaoaa.service
       mode: '0644'      
- 
+    notify: 
+      - "restart ansiblemanager service"
+
+  - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
+    service: 
+      name: "aaoaa"
+      state: started
+      enabled: true
+
+  handlers:
+    - name: "restart ansiblemanager service"
+      service: 
+        name: "aaoaa"
+        state: restarted
 
