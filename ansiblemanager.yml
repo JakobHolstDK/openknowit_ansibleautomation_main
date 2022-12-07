@@ -50,7 +50,7 @@
   - name: "ansiblemanager | copy service file to manager"
     ansible.builtin.template:
       src: aaoaa.service.j2
-      dest: /usr/lib/systemd/user/aaoaa.service
+      dest: /usr/lib/systemd/system/aaoaa.service
       mode: '0644'      
     notify: 
       - "restart ansiblemanager service"
