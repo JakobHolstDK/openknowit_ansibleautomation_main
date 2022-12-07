@@ -8,17 +8,24 @@
 
   - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
-      name: " {{ aaoaa_serviceaccount['name'] }}"
+      name: "{{ aaoaa_serviceaccount['name'] }}"
       state: present
     become: yes
 
 
   - name: "ansiblemanager |Add the automation user"
     ansible.builtin.user:
-      name: " {{ aaoaa_serviceaccount['name'] }}"
-      comment: " {{ aaoaa_serviceaccount['gecos'] }}"
-      group: " {{ aaoaa_serviceaccount['name'] }}"
+      name: "{{ aaoaa_serviceaccount['name'] }}"
+      comment: "{{ aaoaa_serviceaccount['gecos'] }}"
+      group: "{{ aaoaa_serviceaccount['name'] }}"
     become: yes
+
+  - name: Create a 2048-bit SSH key for user jsmith in ~jsmith/.ssh/id_rsa
+    ansible.builtin.user:
+      name: "{{ aaoaa_serviceaccount['name'] }}"
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      ssh_key_file: .ssh/id_rsa
 
   - name: "Ansiblemanager | clone the main ansible manager network"
     ansible.builtin.git:
@@ -40,8 +47,8 @@
   - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
     service: 
       name: "aaoaa"
-      state: stopped
-      enabled: false
+      state: started
+      enabled: true
 
   handlers:
     - name: "restart ansiblemanager service"
