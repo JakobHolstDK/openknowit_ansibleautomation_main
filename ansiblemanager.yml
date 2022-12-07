@@ -45,16 +45,19 @@
       mode: '0644'      
     notify: 
       - "restart ansiblemanager service"
+    become: yes
 
   - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
     service: 
       name: "aaoaa"
       state: started
       enabled: true
+    become: yes
 
   handlers:
     - name: "restart ansiblemanager service"
       service: 
         name: "aaoaa"
         state: restarted
+      become: yes
 
