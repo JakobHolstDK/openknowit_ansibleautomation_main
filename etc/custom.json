@@ -8,13 +8,23 @@
       "projects": [
         {
           "name": "zabbix",
-          "description": "Main project ensure automation engine consistent",
+          "description": "Main project zabbix clients are up",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbix.git",
           "scm_branch": "main",
           "credential": "github",
           "master": "True"
+        },
+        {
+          "name": "zabbixserver",
+          "description": "Main project ensure automation engine consistent",
+          "scm_type": "git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixserver.git",
+          "scm_branch": "main",
+          "credential": "github",
+          "master": "True"
         }
+
       ],
       "credentials": [
         {
@@ -39,12 +49,37 @@
           "variables": {
             "aaoaa_serviceaccount": {
               "name": "knowit",
-              "gecos": "Anible on ansible automatiob"
+              "gecos": "Anible on ansible automation"
+            }
+          },
+          "hosts": "openknowit.org",
+          "type": "static"
+        },
+        {
+          "name": "zabbixservers",
+          "description": "Inventory containing zabbix servers",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automation"
+            }
+          },
+          "hosts": "openknowit.org",
+          "type": "static"
+        },
+        {
+          "name": "databaseservers",
+          "description": "Inventory containing database servers",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automation"
             }
           },
           "hosts": "openknowit.org",
           "type": "static"
         }
+
       ],
       "hosts": [
 	{
@@ -126,6 +161,16 @@
           "name": "monshorewall001.openknowit.com",
           "description": "Server autocreated",
           "inventory": "serverinventory"
+        },
+        {
+          "name": "monzabbix001.openknowit.com",
+          "description": "Server autocreated",
+          "inventory": "zabbixservers"
+        },
+        {
+          "name": "monzabbix001.openknowit.com",
+          "description": "Server autocreated",
+          "inventory": "databaseservers"
         },
         {
           "name": "monzabbix001.openknowit.com",
