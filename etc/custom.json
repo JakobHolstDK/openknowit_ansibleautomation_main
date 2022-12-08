@@ -7,7 +7,7 @@
       "default_environment": "Ansible Engine 2.9 execution environment",
       "projects": [
         {
-          "name": "zabbixclients",
+          "name": "201_zabbixclients",
           "description": "Main project zabbix clients are up",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixclients.git",
@@ -16,7 +16,7 @@
           "master": "True"
         },
         {
-          "name": "zabbixservers",
+          "name": "200_zabbixservers",
           "description": "Project to setup zabbix servers",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
@@ -25,7 +25,7 @@
           "master": "True"
         },
         {
-          "name": "databaseservers",
+          "name": "100_databaseservers",
           "description": "Main project ensure automation engine consistent",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
