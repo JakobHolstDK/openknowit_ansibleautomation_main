@@ -63,10 +63,10 @@
       enabled: true
     become: yes
 
-  - name: "ansiblemanager | Run custom setup"
-    command:  /opt/openknowit_ansible_feed/bin/aaoaa
-    become_user: "{{ aaoaa_serviceaccount['name'] }}"
-    become: yes
+#  - name: "ansiblemanager | Run custom setup"
+#    command:  /opt/openknowit_ansible_feed/bin/aaoaa
+#    become_user: "{{ aaoaa_serviceaccount['name'] }}"
+#    become: yes
 
   handlers:
     - name: "restart ansiblemanager service"
