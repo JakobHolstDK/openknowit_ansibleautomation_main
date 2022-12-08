@@ -17,18 +17,18 @@
         },
         {
           "name": "zabbixservers",
-          "description": "Main project ensure automation engine consistent",
+          "description": "Project to setup zabbix servers",
           "scm_type": "git",
-          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixserver.git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
           "scm_branch": "main",
           "credential": "github",
           "master": "True"
         },
         {
-          "name": "zabbixservers",
+          "name": "databaseservers",
           "description": "Main project ensure automation engine consistent",
           "scm_type": "git",
-          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixserver.git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
           "scm_branch": "main",
           "credential": "github",
           "master": "True"

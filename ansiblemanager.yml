@@ -31,8 +31,8 @@
 
   - name: "Ansiblemanager | clone the main ansible manager feeder "
     ansible.builtin.git:
-      repo: "git@github.com:JakobHolstDK/openknowit_ansible_feed.git"
-      dest: /opt/openknowit_ansible_feed
+      repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_feed.git"
+      dest: /opt/openknowit_ansibleautomation_feed
       single_branch: yes
       force: yes
       version: main
@@ -64,7 +64,7 @@
     become: yes
 
 #  - name: "ansiblemanager | Run custom setup"
-#    command:  /opt/openknowit_ansible_feed/bin/aaoaa
+#    command:  /opt/openknowit_ansibleautomation_feed/bin/aaoaa
 #    become_user: "{{ aaoaa_serviceaccount['name'] }}"
 #    become: yes
 
