@@ -36,6 +36,12 @@
         {
           "name": "serverinventory",
           "description": "Inventorycontaining all servers under automation control",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automatiob"
+            }
+          },
           "hosts": "openknowit.org",
           "type": "static"
         }
