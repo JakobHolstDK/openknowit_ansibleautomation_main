@@ -119,17 +119,17 @@
           "description": "job checking connectivity",
           "job_type": "run",
           "inventory": "100_serverinventory",
-          "project": "111_zabbix_clients",
+          "project": "111_zabbixclients",
           "EE": "Automation Hub Default execution environment",
           "credentials": "100_servers",
           "playbook": "checkup.yml"
         },
         {
-          "name": "110_checkup_zabbixserevers",
+          "name": "110_checkup_zabbixservers",
           "description": "job checking connectivity",
           "job_type": "run",
           "inventory": "110_zabbixservers",
-          "project": "110_zabbix_servers",
+          "project": "110_zabbixservers",
           "EE": "Automation Hub Default execution environment",
           "credentials": "100_servers",
           "playbook": "checkup.yml"
