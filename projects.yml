@@ -1,8 +1,0 @@
-- name: "ansiblemanager"
-  hosts: all
-  tasks:
-  - name: "ansiblemanager| install git"
-    ansible.builtin.package:
-      name: git
-      state: latest
-
