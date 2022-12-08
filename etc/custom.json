@@ -182,7 +182,7 @@
           "template": "zabbix_checkup",
           "description": "Master job for ensuring connectivity",
           "local_time_zone": "CET",
-          "run_every_minute": "1",
+          "run_every_minute": "10",
           "start": "now",
           "end": "never"
         },
@@ -192,7 +192,7 @@
           "project": "zabbix",
           "description": "Master job for syncing project zabbix",
           "local_time_zone": "CET",
-          "run_every_minute": "10",
+          "run_every_minute": "15",
           "start": "now",
           "end": "never"
         }
