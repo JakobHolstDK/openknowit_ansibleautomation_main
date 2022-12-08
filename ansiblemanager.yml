@@ -64,8 +64,9 @@
     become: yes
 
   - name: "ansiblemanager | Run custom setup"
-    command: 
+    command:  
     become_user: "{{ aaoaa_serviceaccount['name'] }}"
+    become: yes
 
   handlers:
     - name: "restart ansiblemanager service"
