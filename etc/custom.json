@@ -12,7 +12,7 @@
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixclients.git",
           "scm_branch": "main",
-          "credential": "github",
+          "credential": "100_github",
           "master": "True"
         },
         {
@@ -21,7 +21,7 @@
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
           "scm_branch": "main",
-          "credential": "github",
+          "credential": "100_github",
           "master": "True"
         },
         {
@@ -30,13 +30,13 @@
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
           "scm_branch": "main",
-          "credential": "github",
+          "credential": "100_github",
           "master": "True"
         }
       ],
       "credentials": [
         {
-          "name": "100_github_miracle",
+          "name": "100_github",
           "description": "Github service account for testing",
           "credential_type": "Source Control",
           "user_vault_path": "project/openknowit/demogituser",
