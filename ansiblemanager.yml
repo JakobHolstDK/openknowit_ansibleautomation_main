@@ -68,10 +68,6 @@
     become_user: "{{ aaoaa_serviceaccount['name'] }}"
     become: yes
 
-  - name: Simple A record (IPV4 address) lookup for example.com
-    ansible.builtin.debug:
-      msg: "{{ lookup('community.general.dig', 'openknowit.com.')}}"
-
   handlers:
     - name: "restart ansiblemanager service"
       service: 
