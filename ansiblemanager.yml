@@ -59,7 +59,7 @@
   - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
     service: 
       name: "aaoaa"
-      state: started
+      state: stopped
       enabled: true
     become: yes
 
@@ -76,6 +76,6 @@
     - name: "restart ansiblemanager service"
       service: 
         name: "aaoaa"
-        state: restarted
+        state: stopped
       become: yes
 
