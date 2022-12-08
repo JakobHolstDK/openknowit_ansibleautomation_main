@@ -240,6 +240,16 @@
           "run_every_minute": "15",
           "start": "now",
           "end": "never"
+        }, 
+        {
+          "name": "zabbixserverprojectschedule",
+          "type": "project",
+          "project": "zabbixservers",
+          "description": "Master job for syncing project zabbixservers",
+          "local_time_zone": "CET",
+          "run_every_minute": "15",
+          "start": "now",
+          "end": "never"
         }
       ],
       "users": 
