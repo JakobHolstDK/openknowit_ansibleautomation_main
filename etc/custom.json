@@ -133,6 +133,16 @@
           "EE": "Automation Hub Default execution environment",
           "credentials": "100_servers",
           "playbook": "checkup.yml"
+        },
+        {
+          "name": "120_checkup_databaseservers",
+          "description": "job checking connectivity",
+          "job_type": "run",
+          "inventory": "120_databaseservers",
+          "project": "120_databaseservers",
+          "EE": "Automation Hub Default execution environment",
+          "credentials": "120_databaseservers",
+          "playbook": "checkup.yml"
         }
       ],
       "schedules": [
