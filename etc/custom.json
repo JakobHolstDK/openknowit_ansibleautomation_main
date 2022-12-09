@@ -167,7 +167,7 @@
         {
           "name": "120_jobschedule_checkup_databaseservers",
           "type": "job",
-          "template": "120_checkup_zabbixservers",
+          "template": "120_checkup_databaseservers",
           "description": "Master job for ensuring connectivity",
           "local_time_zone": "CET",
           "run_every_minute": "10",
