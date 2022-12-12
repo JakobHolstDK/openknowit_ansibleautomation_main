@@ -1,7 +1,7 @@
 {
   "organization": [
     {
-      "name": "100_Miracle",
+      "name": "1000_Miracle",
       "meta": 
         { 
           "description": "My automation",
@@ -10,8 +10,19 @@
         },
       "inventories": [
         {
-          "name": "110_zabbixservers",
+          "name": "1120_zabbixservers",
           "description": "Inventory containing zabbix servers",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automation"
+            }
+          },
+          "type": "static"
+        },
+        {
+          "name": "1110_zabbixclients",
+          "description": "Inventory containing zabbix clients",
           "variables": {
             "aaoaa_serviceaccount": {
               "name": "knowit",
@@ -21,55 +32,51 @@
           "type": "static"
         }
       ],
+      "hosts": [
+	      { "name": "demoautocat001.openknowit.com",   "description": "Server autocreated", "inventories": ["1110_zabbixclients" ] },
+        { "name": "demoautoctl001.openknowit.com",   "description": "Server autocreated", "inventories": ["1110_zabbixclients" ] },
+        { "name": "demoautoexec001.openknowit.com",  "description": "Server autocreated", "inventories": ["1110_zabbixclients" ] },
+        { "name": "monzabbix001.openknowit.com",     "description": "Server autocreated", "inventories": ["1120_zabbixservers" ] }
+      ],
       "projects": [
         {
-          "name": "111_zabbixclients",
+          "name": "1110_zabbixclients",
           "description": "Main project zabbix clients are up",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixclients.git",
           "scm_branch": "main",
-          "credential": "100_github",
+          "credential": "1000_github",
           "master": "True"
         },
         {
-          "name": "110_zabbixservers",
+          "name": "1120_zabbixservers",
           "description": "Project to setup zabbix servers",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
           "scm_branch": "main",
-          "credential": "100_github",
+          "credential": "1000_github",
           "master": "True"
         }
       ],
       "templates": [
         {
-          "name": "111_checkup_zabbixclients",
+          "name": "1110_checkup_zabbixclients",
           "description": "job checking connectivity",
           "job_type": "run",
-          "inventory": "100_serverinventory",
-          "project": "111_zabbixclients",
+          "inventory": "1110_zabbixclients",
+          "project": "1110_zabbixclients",
           "EE": "Automation Hub Default execution environment",
           "credentials": "100_servers",
           "playbook": "checkup.yml"
         },
         {
-          "name": "110_checkup_zabbixservers",
+          "name": "1120_checkup_zabbixservers",
           "description": "job checking connectivity",
           "job_type": "run",
-          "inventory": "110_zabbixservers",
-          "project": "110_zabbixservers",
+          "inventory": "1120_zabbixservers",
+          "project": "1120_zabbixservers",
           "EE": "Automation Hub Default execution environment",
           "credentials": "100_servers",
-          "playbook": "checkup.yml"
-        },
-        {
-          "name": "120_checkup_databaseservers",
-          "description": "job checking connectivity",
-          "job_type": "run",
-          "inventory": "120_databaseservers",
-          "project": "120_databaseservers",
-          "EE": "Automation Hub Default execution environment",
-          "credentials": "120_databaseservers",
           "playbook": "checkup.yml"
         }
       ],

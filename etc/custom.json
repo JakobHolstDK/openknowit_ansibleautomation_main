@@ -1,7 +1,7 @@
 {
   "organization": [
     {
-      "name": "100_Miracle",
+      "name": "1000_Miracle",
       "meta": 
         {
           "description": "My automation",
@@ -10,14 +10,14 @@
         },
       "credentials": [
         {
-          "name": "100_github",
+          "name": "1000_github",
           "description": "Github service account for testing",
           "credential_type": "Source Control",
           "user_vault_path": "project/openknowit/demogituser",
           "kind": "scm"
         },
         { 
-          "name": "100_servers",
+          "name": "1000_servers",
           "description": "main service account for testing",
           "credential_type": "Machine",
           "user_vault_path": "project/openknowit/remotesshuser",
@@ -26,7 +26,7 @@
       ],
       "inventories": [
         {
-          "name": "100_serverinventory",
+          "name": "1000_serverinventory",
           "description": "Inventorycontaining all servers under automation control",
           "variables": {
             "aaoaa_serviceaccount": {
@@ -38,29 +38,29 @@
         }
       ],
       "hosts": [
-	      { "name": "demoautocat001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demoautoctl001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demoautoexec001.openknowit.com",  "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demoautoexec002.openknowit.com",  "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demoautoexec003.openknowit.com",  "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demoautohub001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "demodb001.openknowit.com",        "description": "Server autocreated", "inventories": ["100_serverinventory", "120_databaseservers" ] },
-        { "name": "demosso001.openknowit.com",       "description": "Server autocreated", "inventories": ["103_serverinventory" ] },
-        { "name": "guacdb001.openknowit.com",        "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "guacrhel001.openknowit.com",      "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "guacubuntu001.openknowit.com",    "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "knowitcobbler001.openknowit.com", "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "knowitguaca001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "monnetbox001.openknowit.com",     "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "monnetboxdb001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory", "120_databaseservers" ] },
-        { "name": "monshorewall001.openknowit.com",  "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "monzabbix001.openknowit.com",     "description": "Server autocreated", "inventories": ["100_serverinventory", "110_zabbixservers"  ]  },
-        { "name": "monzabbixdb001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory", "120_databaseservers"]  },
-        { "name": "netboxapp001.openknowit.com",     "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "netboxdb001.openknowit.com",      "description": "Server autocreated", "inventories": ["100_serverinventory", "120_databaseservers"]  },
-        { "name": "netboxweb001.openknowit.com",     "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "netboxweb002.openknowit.com",     "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
-        { "name": "prodserver001.openknowit.com",    "description": "Server autocreated", "inventories": ["100_serverinventory" ] }
+	      { "name": "demoautocat001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demoautoctl001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demoautoexec001.openknowit.com",  "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demoautoexec002.openknowit.com",  "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demoautoexec003.openknowit.com",  "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demoautohub001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demodb001.openknowit.com",        "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "demosso001.openknowit.com",       "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "guacdb001.openknowit.com",        "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "guacrhel001.openknowit.com",      "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "guacubuntu001.openknowit.com",    "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "knowitcobbler001.openknowit.com", "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "knowitguaca001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "monnetbox001.openknowit.com",     "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "monnetboxdb001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "monshorewall001.openknowit.com",  "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "monzabbix001.openknowit.com",     "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "monzabbixdb001.openknowit.com",   "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "netboxapp001.openknowit.com",     "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "netboxdb001.openknowit.com",      "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "netboxweb001.openknowit.com",     "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "netboxweb002.openknowit.com",     "description": "Server autocreated", "inventories": ["1000_serverinventory" ] },
+        { "name": "prodserver001.openknowit.com",    "description": "Server autocreated", "inventories": ["1000_serverinventory" ] }
       ],
       "users": 
         {
