@@ -94,7 +94,7 @@
         { "name": "demoautoexec003.openknowit.com",  "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
         { "name": "demoautohub001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
         { "name": "demodb001.openknowit.com",        "description": "Server autocreated", "inventories": ["100_serverinventory", "120_databaseservers" ] },
-        { "name": "demosso001.openknowit.com",       "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
+        { "name": "demosso001.openknowit.com",       "description": "Server autocreated", "inventories": ["103_serverinventory" ] },
         { "name": "guacdb001.openknowit.com",        "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
         { "name": "guacrhel001.openknowit.com",      "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
         { "name": "guacubuntu001.openknowit.com",    "description": "Server autocreated", "inventories": ["100_serverinventory" ] },
