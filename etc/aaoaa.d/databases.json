@@ -4,7 +4,7 @@
       "name": "100_Miracle",
       "inventories": [
         {
-          "name": "120_databaseservers",
+          "name": "2000_databaseservers",
           "description": "Inventory containing database servers",
           "variables": {
             "aaoaa_serviceaccount": {
@@ -17,7 +17,7 @@
       ],
       "projects": [
         {
-          "name": "120_databaseservers",
+          "name": "2000_databaseservers",
           "description": "Main project ensure automation engine consistent",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
@@ -28,11 +28,11 @@
       ],
       "templates": [
         {
-          "name": "120_checkup_databaseservers",
+          "name": "2000_checkup_databaseservers",
           "description": "job checking connectivity",
           "job_type": "run",
-          "inventory": "120_databaseservers",
-          "project": "120_databaseservers",
+          "inventory": "2000_databaseservers",
+          "project": "2000_databaseservers",
           "EE": "Automation Hub Default execution environment",
           "credentials": "120_databaseservers",
           "playbook": "checkup.yml"
@@ -40,9 +40,9 @@
       ],
       "schedules": [
         {
-          "name": "120_jobschedule_checkup_databaseservers",
+          "name": "2000_jobschedule_checkup_databaseservers",
           "type": "job",
-          "template": "120_checkup_databaseservers",
+          "template": "2000_checkup_databaseservers",
           "description": "Master job for ensuring connectivity",
           "local_time_zone": "CET",
           "run_every_minute": "10",
