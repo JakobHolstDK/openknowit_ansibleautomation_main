@@ -26,6 +26,15 @@
           "master": "True"
         }
       ],
+      "credentials": [
+        { 
+          "name": "2000_databaseservers",
+          "description": "main service account for testing",
+          "credential_type": "Machine",
+          "user_vault_path": "project/openknowit/remotesshuser",
+          "kind": "ssh"
+        }
+      ],
       "templates": [
         {
           "name": "2000_checkup_databaseservers",
@@ -34,7 +43,7 @@
           "inventory": "2000_databaseservers",
           "project": "2000_databaseservers",
           "EE": "Automation Hub Default execution environment",
-          "credentials": "120_databaseservers",
+          "credentials": "2000_databaseservers",
           "playbook": "checkup.yml"
         }
       ],
