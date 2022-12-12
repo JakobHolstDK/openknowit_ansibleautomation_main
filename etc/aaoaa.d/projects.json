@@ -1,0 +1,133 @@
+{
+  "organization": [
+    {
+      "name": "100_Miracle",
+      "description": "Demo of ansible automation",
+      "max_hosts": 90,
+      "default_environment": "Ansible Engine 2.9 execution environment",
+      "projects": [
+        {
+          "name": "111_zabbixclients",
+          "description": "Main project zabbix clients are up",
+          "scm_type": "git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixclients.git",
+          "scm_branch": "main",
+          "credential": "100_github",
+          "master": "True"
+        },
+        {
+          "name": "110_zabbixservers",
+          "description": "Project to setup zabbix servers",
+          "scm_type": "git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
+          "scm_branch": "main",
+          "credential": "100_github",
+          "master": "True"
+        },
+        {
+          "name": "120_databaseservers",
+          "description": "Main project ensure automation engine consistent",
+          "scm_type": "git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
+          "scm_branch": "main",
+          "credential": "100_github",
+          "master": "True"
+        }
+      ],
+      "templates": [
+        {
+          "name": "111_checkup_zabbixclients",
+          "description": "job checking connectivity",
+          "job_type": "run",
+          "inventory": "100_serverinventory",
+          "project": "111_zabbixclients",
+          "EE": "Automation Hub Default execution environment",
+          "credentials": "100_servers",
+          "playbook": "checkup.yml"
+        },
+        {
+          "name": "110_checkup_zabbixservers",
+          "description": "job checking connectivity",
+          "job_type": "run",
+          "inventory": "110_zabbixservers",
+          "project": "110_zabbixservers",
+          "EE": "Automation Hub Default execution environment",
+          "credentials": "100_servers",
+          "playbook": "checkup.yml"
+        },
+        {
+          "name": "120_checkup_databaseservers",
+          "description": "job checking connectivity",
+          "job_type": "run",
+          "inventory": "120_databaseservers",
+          "project": "120_databaseservers",
+          "EE": "Automation Hub Default execution environment",
+          "credentials": "120_databaseservers",
+          "playbook": "checkup.yml"
+        }
+      ],
+      "schedules": [
+        {
+          "name": "111_jobschedule_checkup_zabbixclients",
+          "type": "job",
+          "template": "111_checkup_zabbixclients",
+          "description": "Master job for ensuring connectivity",
+          "local_time_zone": "CET",
+          "run_every_minute": "10",
+          "start": "now",
+          "end": "never"
+        },
+        {
+          "name": "110_jobschedule_checkup_zabbixservers",
+          "type": "job",
+          "template": "110_checkup_zabbixservers",
+          "description": "Master job for ensuring connectivity",
+          "local_time_zone": "CET",
+          "run_every_minute": "10",
+          "start": "now",
+          "end": "never"
+        },
+        {
+          "name": "120_jobschedule_checkup_databaseservers",
+          "type": "job",
+          "template": "120_checkup_databaseservers",
+          "description": "Master job for ensuring connectivity",
+          "local_time_zone": "CET",
+          "run_every_minute": "10",
+          "start": "now",
+          "end": "never"
+        },
+        {
+          "name": "111_projectschedule_zabbixclients",
+          "type": "project",
+          "project": "111_zabbixclients",
+          "description": "Master job for syncing project zabbix",
+          "local_time_zone": "CET",
+          "run_every_minute": "15",
+          "start": "now",
+          "end": "never"
+        }, 
+        {
+          "name": "110_projectschedule_zabbixserver",
+          "type": "project",
+          "project": "110_zabbixservers",
+          "description": "Master job for syncing project zabbixservers",
+          "local_time_zone": "CET",
+          "run_every_minute": "15",
+          "start": "now",
+          "end": "never"
+        },
+        {
+          "name": "120_projectschedule_databaseserver",
+          "type": "project",
+          "project": "120_databaseservers",
+          "description": "Master job for syncing project databaseservers",
+          "local_time_zone": "CET",
+          "run_every_minute": "15",
+          "start": "now",
+          "end": "never"
+        }
+      ]
+    }
+  ]
+}
