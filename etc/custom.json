@@ -2,9 +2,13 @@
   "organization": [
     {
       "name": "100_Miracle",
-      "description": "Demo of ansible automation",
-      "max_hosts": 90,
-      "default_environment": "Ansible Engine 2.9 execution environment",
+      "meta": [
+        {
+          "description": "My automation",
+          "max_hosts": 90,
+          "default_environment": "Ansible Engine 2.9 execution environment"
+        }
+      ],
       "credentials": [
         {
           "name": "100_github",
