@@ -2,7 +2,12 @@
   "organization": [
     {
       "name": "100_Miracle",
-      "meta": {},
+      "meta": 
+        { 
+          "description": "My automation",
+          "max_hosts": 90,
+          "default_environment": "Ansible Engine 2.9 execution environment"
+        },
       "inventories": [
         {
           "name": "110_zabbixservers",
