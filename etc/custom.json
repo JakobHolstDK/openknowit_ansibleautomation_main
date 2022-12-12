@@ -32,30 +32,7 @@
             }
           },
           "type": "static"
-        },
-        {
-          "name": "110_zabbixservers",
-          "description": "Inventory containing zabbix servers",
-          "variables": {
-            "aaoaa_serviceaccount": {
-              "name": "knowit",
-              "gecos": "Anible on ansible automation"
-            }
-          },
-          "type": "static"
-        },
-        {
-          "name": "120_databaseservers",
-          "description": "Inventory containing database servers",
-          "variables": {
-            "aaoaa_serviceaccount": {
-              "name": "knowit",
-              "gecos": "Anible on ansible automation"
-            }
-          },
-          "type": "static"
         }
-
       ],
       "hosts": [
 	      { "name": "demoautocat001.openknowit.com",   "description": "Server autocreated", "inventories": ["100_serverinventory" ] },

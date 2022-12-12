@@ -1,0 +1,55 @@
+{
+  "organization": [
+    {
+      "name": "100_Miracle",
+      "inventories": [
+        {
+          "name": "120_databaseservers",
+          "description": "Inventory containing database servers",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automation"
+            }
+          },
+          "type": "static"
+        }
+      ],
+      "projects": [
+        {
+          "name": "120_databaseservers",
+          "description": "Main project ensure automation engine consistent",
+          "scm_type": "git",
+          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
+          "scm_branch": "main",
+          "credential": "100_github",
+          "master": "True"
+        }
+      ],
+      "templates": [
+        {
+          "name": "120_checkup_databaseservers",
+          "description": "job checking connectivity",
+          "job_type": "run",
+          "inventory": "120_databaseservers",
+          "project": "120_databaseservers",
+          "EE": "Automation Hub Default execution environment",
+          "credentials": "120_databaseservers",
+          "playbook": "checkup.yml"
+        }
+      ],
+      "schedules": [
+        {
+          "name": "120_jobschedule_checkup_databaseservers",
+          "type": "job",
+          "template": "120_checkup_databaseservers",
+          "description": "Master job for ensuring connectivity",
+          "local_time_zone": "CET",
+          "run_every_minute": "10",
+          "start": "now",
+          "end": "never"
+        }
+      ]
+    }
+  ]
+}

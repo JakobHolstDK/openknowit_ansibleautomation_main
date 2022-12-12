@@ -5,6 +5,19 @@
       "description": "Demo of ansible automation",
       "max_hosts": 90,
       "default_environment": "Ansible Engine 2.9 execution environment",
+      "inventories": [
+        {
+          "name": "110_zabbixservers",
+          "description": "Inventory containing zabbix servers",
+          "variables": {
+            "aaoaa_serviceaccount": {
+              "name": "knowit",
+              "gecos": "Anible on ansible automation"
+            }
+          },
+          "type": "static"
+        }
+      ],
       "projects": [
         {
           "name": "111_zabbixclients",
@@ -20,15 +33,6 @@
           "description": "Project to setup zabbix servers",
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_zabbixservers.git",
-          "scm_branch": "main",
-          "credential": "100_github",
-          "master": "True"
-        },
-        {
-          "name": "120_databaseservers",
-          "description": "Main project ensure automation engine consistent",
-          "scm_type": "git",
-          "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
           "scm_branch": "main",
           "credential": "100_github",
           "master": "True"
