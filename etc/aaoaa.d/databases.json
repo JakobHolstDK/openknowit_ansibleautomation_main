@@ -28,7 +28,7 @@
           "scm_type": "git",
           "scm_url": "git@github.com:JakobHolstDK/openknowit_ansibleautomation_databaseservers.git",
           "scm_branch": "main",
-          "credential": "100_github",
+          "credential": "1000_github",
           "master": "True"
         }
       ],
