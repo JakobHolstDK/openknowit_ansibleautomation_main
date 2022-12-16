@@ -16,6 +16,12 @@
           "user_vault_path": "project/openknowit/demogituser",
           "kind": "scm"
         },
+        {
+          "name" : "vault",
+          "description": "my hashicorp vault",
+          "credential_type": "HashiCorp Vault Secret Lookup",
+          "source": "environment"
+        },
         { 
           "name": "1000_servers",
           "description": "main service account for testing",
