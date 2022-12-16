@@ -55,7 +55,7 @@
       owner: "{{ aaoaa_serviceaccount['name'] }}"
       group: "{{ aaoaa_serviceaccount['name'] }}"
 
-  name: Create the virtual environment
+  - name: Create the virtual environment
     pip:
       requirements: /opt/openknowit_ansibleautomation_feed/requirements.txt
       virtualenv: /opt/.virtualenv/aaoaa_env
