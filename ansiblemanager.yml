@@ -53,22 +53,26 @@
       dest: /usr/lib/systemd/system/aaoaa.service
       mode: '0644'      
     notify: 
+      - "reload ansiblemanager daemon"
       - "restart ansiblemanager service"
     become: yes
-
-  - name: "ansiblemanager | Ensure ansible manager serivice is runnig"
+    
+  - name: "ansiblemanager | Meta "
+    meta: flush_handlers
+      
+  - name: "ansiblemanager | Ensure ansible manager serivice is running"
     service: 
       name: "aaoaa"
       state: stopped
       enabled: true
     become: yes
 
-#  - name: "ansiblemanager | Run custom setup"
-#    command:  /opt/openknowit_ansibleautomation_feed/bin/aaoaa
-#    become_user: "{{ aaoaa_serviceaccount['name'] }}"
-#    become: yes
-
   handlers:
+    - name: "reload ansiblemanager daemon"
+      systemd: 
+        daemon_reload: yes
+      become: yes
+      
     - name: "restart ansiblemanager service"
       service: 
         name: "aaoaa"
