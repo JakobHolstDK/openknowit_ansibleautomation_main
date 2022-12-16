@@ -46,6 +46,28 @@
       force: yes
       version: main
     become: yes
+
+  - name: Recursively change ownership of a directory
+    ansible.builtin.file:
+      path: /opt/openknowit_ansibleautomation_feed
+      state: directory
+      recurse: yes
+      owner: "{{ aaoaa_serviceaccount['name'] }}"
+      group: "{{ aaoaa_serviceaccount['name'] }}"
+
+  name: Create the virtual environment
+    pip:
+      requirements: /opt/openknowit_ansibleautomation_feed/requirements.txt
+      virtualenv: /opt/.virtualenv/aaoaa_env
+      virtualenv_python: python3
+    
+  - name: Recursively change ownership of a directory
+    ansible.builtin.file:
+      path: /opt/openknowit_ansibleautomation_main
+      state: directory
+      recurse: yes
+      owner: "{{ aaoaa_serviceaccount['name'] }}"
+      group: "{{ aaoaa_serviceaccount['name'] }}"
     
   - name: "ansiblemanager | copy service file to manager"
     ansible.builtin.template:
