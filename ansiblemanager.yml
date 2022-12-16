@@ -5,11 +5,13 @@
     ansible.builtin.package:
       name: git
       state: latest
+    become: yes
 
   - name: "ansiblemanager | install python3-virtualenv"
     ansible.builtin.package:
       name: python3-virtualenv
       state: latest
+    become: yes
 
   - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
