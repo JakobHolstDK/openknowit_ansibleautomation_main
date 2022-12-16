@@ -6,6 +6,11 @@
       name: git
       state: latest
 
+  - name: "ansiblemanager | install python3-virtualenv"
+    ansible.builtin.package:
+      name: python3-virtualenv
+      state: latest
+
   - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
       name: "{{ aaoaa_serviceaccount['name'] }}"
@@ -38,7 +43,7 @@
       version: main
     become: yes
   
-  - name: "Ansiblemanager | clone the main ansible manager network"
+  - name: "Ansiblemanager | clone the main ansible manager main project"
     ansible.builtin.git:
       repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
       dest: /opt/openknowit_ansibleautomation_main
