@@ -3,6 +3,9 @@ Description=Ansible Automation on Ansible Automation
 After=network.target
 
 [Service]
+Environment="VAULT_TOKEN={{ VAULT_TOKEN }}"
+Environment="VAULT_FORMAT=json"
+Environment="VAULT_ADDR={{ VAULT_ADDR }}"
 ExecStart=/opt/openknowit_ansibleautomation_main/bin/aaoaad
 User={{ aaoaa_serviceaccount['name'] }}
 Restart=always
