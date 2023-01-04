@@ -62,7 +62,11 @@
           "local_time_zone": "CET",
           "run_every_minute": "10",
           "start": "now",
-          "end": "never"
+          "end": "never",
+          "severity": "alert",
+          "smpt": true,
+          "mail": true,
+          "recipee": "jho@miracle.dk"
         }
       ]
     }
