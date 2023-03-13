@@ -19,7 +19,6 @@
       state: present
     become: yes
 
-
   - name: "ansiblemanager |Add the automation user"
     ansible.builtin.user:
       name: "{{ aaoaa_serviceaccount['name'] }}"
@@ -38,78 +37,9 @@
 
   - name: "Ansiblemanager | clone the main ansible manager feeder "
     ansible.builtin.git:
-      repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_feed.git"
-      dest: /opt/openknowit_ansibleautomation_feed
+      repo: "https://github.com/miracle-as/openknowit_kalm.git"
+      dest: /opt/openknowit_kalm
       single_branch: yes
       force: yes
       version: main
     become: yes
-  
-  - name: "Ansiblemanager | clone the main ansible manager main project"
-    ansible.builtin.git:
-      repo: "git@github.com:JakobHolstDK/openknowit_ansibleautomation_main.git"
-      dest: /opt/openknowit_ansibleautomation_main
-      single_branch: yes
-      force: yes
-      version: main
-    become: yes
-
-  - name: Recursively change ownership of a directory
-    ansible.builtin.file:
-      path: /opt/openknowit_ansibleautomation_feed
-      state: directory
-      recurse: yes
-      owner: "{{ aaoaa_serviceaccount['name'] }}"
-      group: "{{ aaoaa_serviceaccount['name'] }}"
-    become: yes
-
-  - name: Create the virtual environment
-    pip:
-      requirements: /opt/openknowit_ansibleautomation_feed/requirements.txt
-      virtualenv: /opt/.virtualenv/aaoaa_env
-      virtualenv_python: python3
-    become: yes
-    
-  - name: Recursively change ownership of a directory
-    ansible.builtin.file:
-      path: /opt/openknowit_ansibleautomation_main
-      state: directory
-      recurse: yes
-      owner: "{{ aaoaa_serviceaccount['name'] }}"
-      group: "{{ aaoaa_serviceaccount['name'] }}"
-    become: yes
-    
-  - name: "ansiblemanager | copy service file to manager"
-    ansible.builtin.template:
-      src: aaoaa.service.j2
-      dest: /usr/lib/systemd/system/aaoaa.service
-      mode: '0644'      
-    notify: 
-      - "reload ansiblemanager daemon"
-      - "restart ansiblemanager service"
-    become: yes
-    
-  - name: "ansiblemanager | Meta "
-    meta: flush_handlers
-    become: yes
-      
-  - name: "ansiblemanager | Ensure ansible manager serivice is running"
-    service: 
-      name: "aaoaa"
-      state: stopped
-      enabled: true
-    become: yes
-
-  handlers:
-    - name: "reload ansiblemanager daemon"
-      systemd: 
-        daemon_reload: yes
-      become: yes
-      
-    - name: "restart ansiblemanager service"
-      service: 
-        name: "aaoaa"
-        state: stopped
-      become: yes
-
-
