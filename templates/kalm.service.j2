@@ -1,0 +1,16 @@
+[Unit]
+Description=Ansible Automation on Ansible Automation
+After=network.target
+
+[Service]
+Environment="ANSIBLE_TOKEN={{ ansible_token }}"
+Environment="VAULT_FORMAT=json"
+Environment="VAULT_ADDR={{ ansible_host }}"
+ExecStart=kalm
+User={{ serviceaccount['name'] }}
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
+
