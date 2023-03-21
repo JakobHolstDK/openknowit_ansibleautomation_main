@@ -46,7 +46,7 @@
 
   - name: "Ansiblemanager | pip install kalm"
     ansible.builtin.pip:
-      name: https://github.com/miracle-as/openknowit_kalm.git 
+      name: git+https://github.com/miracle-as/openknowit_kalm.git 
 
 
 
