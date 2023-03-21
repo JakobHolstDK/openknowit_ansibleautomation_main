@@ -20,6 +20,12 @@
       group: "{{ serviceaccount['name'] }}"
     become: yes
 
+  - name: "Ansiblemanager | pip install awxcli"
+    ansible.builtin.pip:
+      name: https://releases.ansible.com/ansible-tower/cli/ansible-tower-cli-latest.tar.gz
+    become: yes
+    become_user: "{{ serviceaccount['name'] }}"
+
   - name: "Ansiblemanager | pip install kalm"
     ansible.builtin.pip:
       name: git+https://github.com/miracle-as/openknowit_kalm.git 
