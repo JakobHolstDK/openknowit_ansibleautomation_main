@@ -15,24 +15,24 @@
 
   - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
-      name: "{{ aaoaa_serviceaccount['name'] }}"
+      name: "{{ serviceaccount['name'] }}"
       state: present
     become: yes
 
   - name: "ansiblemanager |Add the automation user"
     ansible.builtin.user:
-      name: "{{ aaoaa_serviceaccount['name'] }}"
-      comment: "{{ aaoaa_serviceaccount['gecos'] }}"
-      group: "{{ aaoaa_serviceaccount['name'] }}"
+      name: "{{ serviceaccount['name'] }}"
+      comment: "{{ serviceaccount['gecos'] }}"
+      group: "{{ serviceaccount['name'] }}"
     become: yes
 
   - name: Create a 2048-bit SSH key for  automation user
     ansible.builtin.user:
-      name: "{{ aaoaa_serviceaccount['name'] }}"
+      name: "{{ serviceaccount['name'] }}"
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
-    become_user: "{{ aaoaa_serviceaccount['name'] }}"
+    become_user: "{{ serviceaccount['name'] }}"
     become: yes
 
   - name: "Ansiblemanager | clone the main ansible manager feeder "
@@ -43,3 +43,10 @@
       force: yes
       version: main
     become: yes
+
+  - name: "Ansiblemanager | pip install kalm"
+    ansible.builtin.pip:
+      name: https://github.com/miracle-as/openknowit_kalm.git 
+
+
+
