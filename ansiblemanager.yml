@@ -7,12 +7,6 @@
       state: latest
     become: yes
 
-  - name: "ansiblemanager | install python3-virtualenv"
-    ansible.builtin.apt:
-      name: python3-virtualenv
-      state: latest
-    become: yes
-
   - name: "ansiblemanager |Add the automation group"
     ansible.builtin.group:
       name: "{{ serviceaccount['name'] }}"
@@ -26,27 +20,21 @@
       group: "{{ serviceaccount['name'] }}"
     become: yes
 
-  - name: Create a 2048-bit SSH key for  automation user
-    ansible.builtin.user:
-      name: "{{ serviceaccount['name'] }}"
-      generate_ssh_key: yes
-      ssh_key_bits: 2048
-      ssh_key_file: .ssh/id_rsa
-    become_user: "{{ serviceaccount['name'] }}"
-    become: yes
-
-  - name: "Ansiblemanager | clone the main ansible manager feeder "
-    ansible.builtin.git:
-      repo: "https://github.com/miracle-as/openknowit_kalm.git"
-      dest: /opt/openknowit_kalm
-      single_branch: yes
-      force: yes
-      version: main
-    become: yes
-
   - name: "Ansiblemanager | pip install kalm"
     ansible.builtin.pip:
       name: git+https://github.com/miracle-as/openknowit_kalm.git 
+    become: yes
+    become_user: "{{ serviceaccount['name'] }}"
+
+  - name: Create the service file
+    ansible.builtin.template:
+      src: kalm.service.j2
+      dest: /etc/systemd/system/kalm.service
+      owner: root
+      group: root
+      mode: '0644'
+
+
 
 
 
