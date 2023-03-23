@@ -30,23 +30,6 @@
       name: git+https://github.com/miracle-as/openknowit_kalm.git 
     become: yes
 
-  - name: "Ansiblemanager | Create the service file"
-    ansible.builtin.template:
-      src: kalm.service.j2
-      dest: /etc/systemd/system/kalm.service
-      owner: root
-      group: root
-      mode: '0644'
-    become: yes
-
-  - name: "Ansiblemanager | Chreate the service file checker"
-    ansible.builtin.copy:
-       src:  managekalmservicefile.sh
-       dest: /usr/local/bin/managekalmservicefile.sh
-       mode: 0755
-    become: yes
-
-
 
 
 
